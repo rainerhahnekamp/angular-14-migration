@@ -11,3 +11,5 @@ For each step, there exists a separate branch which depends on the former "step 
 5. 05-scs: Migrates the SCAMs to Standalone Components
 6. 06-bootstrap: Uses the new `bootstrapApplication` method instead of the `AppModule´.
 7. 07-routing: Uses the `importProvidersFrom` which partially replaces the import of `NgModules`.
+
+You find an accompanying video recording on https://youtu.be/g836yoZ2y6o
