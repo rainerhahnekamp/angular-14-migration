@@ -1,7 +1,7 @@
 import { HolidaysService } from './holidays.service';
 import { holidays as fixtures } from './holidays.data';
 import { firstValueFrom, of } from 'rxjs';
-import { createSpyFromClass } from 'jasmine-auto-spies';
+import { createSpyFromClass } from 'jest-auto-spies';
 import { HttpClient } from '@angular/common/http';
 import { createHolidays } from './model/holiday';
 
@@ -19,7 +19,7 @@ describe('Holidays Service', () => {
   it('should send an Http request when the baseUrl is set', async () => {
     const httpSpy = createSpyFromClass(HttpClient);
     const holidays = createHolidays({}, {});
-    httpSpy.get.and.returnValue(of(holidays));
+    httpSpy.get.mockReturnValue(of(holidays));
     const holidaysService = new HolidaysService(
       'http://localhost:4200',
       httpSpy
