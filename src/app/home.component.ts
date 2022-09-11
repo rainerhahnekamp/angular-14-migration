@@ -11,6 +11,10 @@ import { Component } from '@angular/core';
       You can click around, do whatever you want but don't expect to be able to
       book a real holiday 😉.
     </p> `,
-    standalone: true
+  standalone: true,
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor() {
+    console.log('here i am');
+  }
+}

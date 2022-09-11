@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
 import { UserLoaderGuard } from './security/user-loader.guard';
 import { SignUpComponent } from './security/sign-up/sign-up.component';
+import { HomeSwitcherComponent } from './home-switcher.component';
 
 export const routes: Routes = [
   {
@@ -10,8 +10,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
-        title: 'Eternal',
+        component: HomeSwitcherComponent,
       },
       { path: 'sign-up', component: SignUpComponent, title: 'Sign up' },
       {

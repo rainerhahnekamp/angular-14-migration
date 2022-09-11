@@ -1,8 +1,8 @@
-@import "~@angular/material/theming";
+@import "@angular/material/theming";
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @include mat-core();
 
@@ -44,9 +44,9 @@ $candy-app-primary: mat-palette($palette);
 $candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 $candy-app-warn: mat-palette($mat-red);
 $candy-app-theme: mat-light-theme(
-    $candy-app-primary,
-    $candy-app-accent,
-    $candy-app-warn
+  $candy-app-primary,
+  $candy-app-accent,
+  $candy-app-warn
 );
 @include angular-material-theme($candy-app-theme);
 
@@ -59,11 +59,13 @@ body {
   background-blend-mode: saturation;
 }
 
-a, .link {
+a,
+.link {
   color: #2193b0;
 }
 
-mat-checkbox + mat-checkbox, mat-radio-button + mat-radio-button {
+mat-checkbox + mat-checkbox,
+mat-radio-button + mat-radio-button {
   margin-left: 1.5em;
 }
 
@@ -75,8 +77,72 @@ mat-checkbox + mat-checkbox, mat-radio-button + mat-radio-button {
   text-align: center;
 }
 
-
 h2 {
   font-weight: bold;
   font-size: 125%;
+}
+
+div.big-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 508px;
+  overflow: hidden;
+  margin: 2em 0;
+  background-color: #3f81b3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  h2 {
+    position: relative;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: calc(10px + 8vw);
+    font-weight: 700;
+    color: #f5f5f5;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    perspective: 500px;
+  }
+
+  h2::before,
+  h2::after {
+    content: attr(aria-label);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    text-shadow: 0.01em 0.01em 0.01em rgba(0, 0, 0, 0.3);
+  }
+
+  h2::before {
+    animation: floatAbove 3.5s ease-in-out infinite;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+  }
+
+  h2::after {
+    opacity: 0.65;
+    filter: blur(0.02em);
+    transform: translate(-50%, -50%) rotateX(21deg);
+    animation: floatBelow 3.5s ease-in-out infinite;
+    -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+  }
+
+  @keyframes floatAbove {
+    50% {
+      transform: translate(-50%, -60%);
+      -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+    }
+  }
+
+  @keyframes floatBelow {
+    50% {
+      transform: translate(-50%, -60%) rotateX(10deg);
+      -webkit-clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+      clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+    }
+  }
 }

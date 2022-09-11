@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap");
+
+h1 {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 120px;
+  letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #ff1f8f, 20px 20px #000000;
+}
+
+div.big-image.norway {
+  background-image: url("../../assets/norway.jpg");
+}
+div.big-image.canada {
+  background-image: url("../../assets/canada.jpg");
+}
