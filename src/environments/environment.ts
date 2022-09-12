@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  newLayout: false,
+  newLayout: true,
   baseUrl: '',
 };
 

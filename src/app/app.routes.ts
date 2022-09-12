@@ -1,5 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeSwitcherComponent } from './home-switcher.component';
+import { HomeComponent } from './home.component';
+import { NEW_LAYOUT } from './shared/new-layout.token';
+import { inject } from '@angular/core';
+import { HomeNewComponent } from './home-new/home-new.component';
 
 export const routes: Routes = [
   {
@@ -7,7 +10,13 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeSwitcherComponent,
+        canMatch: [() => !inject(NEW_LAYOUT)],
+        component: HomeComponent,
+      },
+      {
+        path: '',
+        canMatch: [() => inject(NEW_LAYOUT)],
+        component: HomeNewComponent,
       },
       {
         path: 'holidays',

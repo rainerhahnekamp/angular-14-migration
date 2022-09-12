@@ -1,4 +1,4 @@
-import { Inject, Injectable, Optional } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BASE_URL } from '../shared/base-url.token';
 import { HttpClient } from '@angular/common/http';
 import { Holiday } from './model/holiday';
@@ -7,10 +7,8 @@ import { holidays } from './holidays.data';
 
 @Injectable({ providedIn: 'root' })
 export class HolidaysService {
-  constructor(
-    @Inject(BASE_URL) @Optional() private baseUrl: string,
-    private httpClient: HttpClient
-  ) {}
+  private httpClient = inject(HttpClient);
+  private baseUrl = inject(BASE_URL, { optional: true });
 
   load() {
     if (this.baseUrl) {

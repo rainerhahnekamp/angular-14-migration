@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Component,
   Inject,
   OnInit,
@@ -39,8 +38,7 @@ export class HolidaysComponent implements OnInit {
         : DefaultHolidayCardsComponent
     );
     this.holidays$.subscribe((holidays) => {
-      holidayCards.instance.holidays = holidays;
-      holidayCards.injector.get(ChangeDetectorRef).detectChanges();
+      holidayCards.setInput('holidays', holidays);
     });
   }
 }
